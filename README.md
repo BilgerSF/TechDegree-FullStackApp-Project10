@@ -1,2 +1,2 @@
-# TechDegree-FullStackApp-Project10
- Full Stack Javascript app
+# TechDegree-FullStackApp-10
+ TechDegree Full Stack Javascript App
