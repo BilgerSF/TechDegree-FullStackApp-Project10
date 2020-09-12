@@ -39,12 +39,15 @@ class UserSignIn extends React.Component{
     }
     
     render(){
+    //........Target URI........//
      //Assign target URI if user was redirected to Sign In page
-    if(this.props.location !== undefined){
-     if( this.props.location.state !== undefined){
-         targetURI = this.props.location.state.from.pathname;
+    //console.log(this.props.history.location.state.from.pathname)
+    
+     if( this.props.history.location.state !== null){
+       
+         targetURI = this.props.history.location.state.from.pathname;
      }
-    }
+    
      
         return(
         

@@ -53,6 +53,7 @@ class CreateCourse extends React.Component{
        })
       })
        .then((res)=>{
+         
          if(res.status === 400){ 
          return res.json()
          }

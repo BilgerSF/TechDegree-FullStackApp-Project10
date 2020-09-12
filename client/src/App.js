@@ -172,7 +172,7 @@ class App extends React.Component{
             <PrivateRoute exact path="/courses/create" component = {CreateCourse} />
             <PrivateRoute exact path='/courses/:id/update' component = {UpdateCourse} />
             <Route exact path = '/courses/:id' component = {CourseDetail} />
-            <Route exact path = '/signin' render={() => <UserSignIn signIn = {this.signIn} />}  />
+            <Route exact path = '/signin' render={() => <UserSignIn history = {this.props.history} signIn = {this.signIn} />}  />
             <Route exact path = '/signup' render = {()=><UserSignUp history = {this.props.history} signIn = {this.signIn}/>} />
             <Route exact path = '/signout' component = {UserSignOut} />
             <Route exact path = '/forbidden' component = {Forbidden} />

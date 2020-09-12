@@ -9,6 +9,7 @@ var paragraphsJSX = [];
 var itemsJSX = [];
 let editFeature;
 let courseId;
+let statusCode;
 
 class CourseDetail extends React.Component {
   constructor(props) {
@@ -28,6 +29,7 @@ class CourseDetail extends React.Component {
 
     fetch(`http://localhost:5000/api/courses/${courseId}`)
       .then((response) => {
+        statusCode = response.status;
         if (response.status === 404) {
           this.props.history.push("/notfound");
         }
@@ -37,8 +39,10 @@ class CourseDetail extends React.Component {
         this.setState({ courseDetail: data });
       })
       .catch((error) => {
+        if(statusCode === 500){
         console.error(error, "Server error.Status code: 500");
         this.props.history.push("/error");
+        }
       });
   }
 
@@ -53,12 +57,15 @@ class CourseDetail extends React.Component {
       },
     })
       .then((res) => {
+        statusCode = res.status;
         //redirect to courses list
         this.props.history.push("/");
       })
       .catch((error) => {
+        if(statusCode === 500){
         console.error(error, "Server error.Status code: 500");
         this.props.history.push("/error");
+        }
       });
   }
 
